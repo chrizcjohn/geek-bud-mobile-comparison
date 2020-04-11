@@ -1,4 +1,4 @@
-# geekbuddymobilecomparison
+# geek-buddy Smartphone comparison
 A smartphone comparison website build using python django framework
 
 Requirements
