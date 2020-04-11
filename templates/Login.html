@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+     <!-- Site Metas -->
+    <title>Appfast - Responsive OnePage HTML5 Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{% static 'css/versions.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <!--[if lt IE 9]>
+      <script src="{% static 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
+      <script src="{% static 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js' %}"></script>
+    <![endif]-->
+<script>
+    {% if messages %}
+        alert("{{ messages }}");
+    {% endif %}
+</script>
+<script>
+function validation() {
+    var name = document.forms["Login"]["email"]
+    var password = document.forms["Login"]["password"]
+    if(name.value==""){
+        window.alert("Please enter your email ");
+        name.focus();
+        return false;
+    }
+    if(password.value==""){
+        window.alert("Please enter your password ");
+        password.focus();
+        return false;
+    }
+return true;
+}
+    
+</script>
+
+</head>
+<body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
+
+    <!-- LOADER -->
+    <!-- <div id="preloader">
+        <img class="preloader" src="{% static 'images/loaders/loader-app.gif' %}" alt="">
+    </div> end loader -->
+    <!-- END LOADER -->
+
+    <header class="header header_style_01">
+        <nav class="navbar header-nav navbar-expand-lg">
+            <div class="container">
+				<a class="navbar-brand" href="{% static 'index.html' %}"><img src="{% static 'images/logos/logo-app.png' %}" alt="image"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarApp" aria-expanded="false" aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarApp">
+                    <ul class="navbar-nav">
+                         <li><a class="nav-link active" href="{% url 'index' %}">Home</a></li>
+                        <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+						<li><a class="nav-link" href="{% url 'signup' %}">User Signup</a></li>
+                        <li><a class="nav-link" href="{% url 'CompanySignup' %}">Company Signup</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div id="support" class="section" style="background-image:url({% static 'uploads/bg_login.jpg' %});">
+        <div class="container">
+            <div class="section-title text-center">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <h3>LOGIN</h3>
+				<div class="info-box" data-toggle="tooltip" data-placement="right" title="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.">
+{#					<i class="fa fa-question-circle" aria-hidden="true"></i>#}
+				</div>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact_form">
+                        <div id="message"></div>
+                        <form  name="Login" class="row" action="{% url 'login' %}" name="contactform" onsubmit="return validation()" method="POST">
+                          {% csrf_token %}
+                            <fieldset class="row">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Your Password">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
+                                    <button type="submit" value="SAVE" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">LOGIN</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+
+     <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="{% static '#' %}">Appfast</a> Design By :
+					<a href="{% static 'https://html.design/' %}">Christin</a></p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'js/all.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+	<script src="{% static 'js/zenith.js' %}"></script>
+	<script>
+		$('#default').zenith({
+			layout: 'default' ,
+			slideSpeed: 450,
+			autoplaySpeed: 2000
+		});
+	</script>
+
+</body>
+</html>

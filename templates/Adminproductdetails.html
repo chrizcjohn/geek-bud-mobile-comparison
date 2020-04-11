@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Site Metas -->
+<title>Appfast - Responsive OnePage HTML5 Template</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Site Icons -->
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<!-- Site CSS -->
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="{% static 'css/versions.css' %}">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<!--[if lt IE 9]>
+      <script src="{% static 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
+      <script src="{% static 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js' %}"></script>
+    <![endif]-->
+
+</head>
+<body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
+
+<!-- LOADER -->
+<!-- <div id="preloader">
+        <img class="preloader" src="{% static 'images/loaders/loader-app.gif' %}" alt="">
+    </div> end loader -->
+<!-- END LOADER -->
+
+<header class="header header_style_01">
+    <nav class="navbar header-nav navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logos/logo-app.png' %}"
+                                                                  alt="image"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarApp"
+                    aria-controls="navbarApp" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarApp">
+                <ul class="navbar-nav">
+                    <li><a class="nav-link active" href="{% url 'adminhome' %}">Home</a></li>
+                    <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<br>
+<br>
+<br>
+<div id="features" class="section wb">
+    <div class="container">
+        <div class="section-title text-center">
+            <br>
+            <br>
+            <br>
+
+            <h3>The Product Details</h3>
+            <p class="lead">The following is the Specifications of the product</p>
+        </div><!-- end title -->
+
+        <div id="default" class="row clearfix zenith_slider">
+            {% for i in con %}
+                <!--The First row-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-row">
+                    <ul class="features-left">
+                        <li class="highlight lhgh" data-index="0">
+                            <a><i class="flaticon-windows  effect-1"> </i></a>
+                            <div class="fl-inner">
+
+                                <h4>{{ i.model }}</h4>
+                                <p>Product Details</p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+
+                        <li class="highlight lhgh" data-index="1">
+                            <i class="flaticon-windows effect-1"></i>
+                            <div class="fl-inner">
+                                <h4>{{ i.network }}</h4>run
+                                <p>Network Type </p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+
+                        <li class="highlight lhgh" data-index="2">
+                            <i class="flaticon-price-tag effect-1"></i>
+                            <div class="fl-inner">
+                                <h4>{{ i.display }}</h4>
+                                <p>Display Type</p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+
+                        <li class="highlight lhgh" data-index="3">
+                            <i class="flaticon-new-file effect-1"></i>
+                            <div class="fl-inner">
+                                <h4>{{ i.memory }}</h4>
+                                <p>Ram</p>
+                            </div>
+                        </li>
+                        <li class="highlight lhgh" data-index="3">
+                            <i class="flaticon-new-file effect-1"></i>
+                            <div class="fl-inner">
+                                <h4>{{ i.phfeatures }}</h4>
+                                <p>Total Storage</p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+                    </ul>
+                </div><!-- .row .left-row -->
+                <div class="compareMargin">
+                    <div class="highlights-phone col-lg-4 col-md-4 col-sm-12 col-xs-12 wht">
+
+                        <div class="phone-holder">
+                            <img style="width: 290px ; padding-left:32px" src="{{ i.image.url }}" alt="image">
+                            <div class="compareButton"><a href="{% url 'compare' id=i.id %}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-warning">Compare</button>
+                            </a></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--The Second row-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 right-row">
+                    <ul class="features-right">
+                        <li class="highlight rhgh" data-index="4">
+                            <i class="flaticon-pantone effect-1"></i>
+                            <div class="fr-inner">
+                                <h4>{{ i.cpu }}</h4>
+                                <p>Processor Used</p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+                        <li class="highlight rhgh" data-index="5">
+                            <i class="flaticon-cloud-computing effect-1"></i>
+                            <div class="fr-inner">
+                                <h4>{{ i.mainCam }}</h4>
+                                <p>Rear Camera</p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+                        <li class="highlight rhgh" data-index="6">
+                            <i class="flaticon-line-graph effect-1"></i>
+                            <div class="fr-inner">
+                                <h4>{{ i.selfieCam }}</h4>
+                                <p>Front Camera</p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+                        <li class="highlight rhgh" data-index="7">
+                            <i class="flaticon-coding effect-1"></i>
+                            <div class="fr-inner">
+                                <h4>{{ i.battery }}</h4>
+                                <p>Battery mAh</p>
+                            </div>
+                        </li>
+                        <li class="highlight rhgh" data-index="7">
+                            <i class="flaticon-coding effect-1"></i>
+                            <div class="fr-inner">
+                                <h4>{{ i.price }}</h4>
+                                <p>Price of the product in market</p>
+                            </div>
+                        </li><!-- .highlight .left-row -->
+                    </ul>
+                </div><!-- .row .left-row -->
+
+                </div><!--Highlights close-->
+                </div><!-- end container -->
+                <div id="testimonials" class="section wb">
+                    <div class="container">
+
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="testi-carousel owl-carousel owl-theme">
+
+                                    <!-- end testimonial -->
+
+                                    <!-- end testimonial -->
+
+                                    <!-- end testimonial -->
+
+                                    <!-- end testimonial -->
+                                    {% for b in allcmt %}
+                                        <div class="testimonial clearfix">
+                                            <div class="desc">
+                                                <h3><i class="fa fa-quote-left"></i>{{ b.caption }}</h3>
+                                                <p class="lead">{{ b.comments }}</p>
+                                            </div>
+                                            <div class="testi-meta">
+                                                <img src="{% static 'uploads/testi_02.png' %}" alt=""
+                                                     class="img-fluid alignleft">
+                                                <h4>{{ b.username }} <small>
+                                                    <div class="compareButton"><a
+                                                            href="{% url 'AdminCommentDelete' id=b.id %}">
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <button class="btn btn-warning">Delete</button>
+                                                    </a></div>
+                                                </small></h4>
+                                            </div>
+                                            <!-- end testi-meta -->
+                                        </div>{% endfor %}
+                                    <!-- end testimonial -->
+
+
+                                    <!-- end testi-meta -->
+                                </div><!-- end testimonial -->
+                            </div><!-- end carousel -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end container -->
+                </div><!-- end section -->
+                </div><!-- end section -->
+
+            {% endfor %}
+
+<div class="copyrights">
+    <div class="container">
+        <div class="footer-distributed">
+            <div class="footer-left">
+                <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="{% static '#' %}">Appfast</a>
+                    Design By :
+                    <a href="{% static 'https://html.design/' %}">Christin</a></p>
+            </div>
+        </div>
+    </div><!-- end container -->
+</div>
+
+<!-- ALL JS FILES -->
+<script src="{% static 'js/all.js' %}"></script>
+<!-- ALL PLUGINS -->
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/zenith.js' %}"></script>
+<script>
+    $('#default').zenith({
+        layout: 'default',
+        slideSpeed: 450,
+        autoplaySpeed: 2000
+    });
+</script>
+
+</body>
+</html>

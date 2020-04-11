@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+     <!-- Site Metas -->
+    <title>Appfast - Responsive OnePage HTML5 Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{% static 'css/versions.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+
+
+    <!--[if lt IE 9]>
+      <script src="{% static 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
+      <script src="{% static 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js' %}"></script>
+    <![endif]-->
+
+</head>
+<body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
+
+    <!-- LOADER -->
+    <!-- <div id="preloader">
+        <img class="preloader" src="{% static 'images/loaders/loader-app.gif' %}" alt="">
+    </div> end loader -->
+    <!-- END LOADER -->
+
+    <header class="header header_style_01">
+        <nav class="navbar header-nav navbar-expand-lg">
+            <div class="container">
+				<a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logos/logo-app.png' %}" alt="image"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarApp" aria-expanded="false" aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarApp">
+                    <ul class="navbar-nav">
+                        <li><a class="nav-link active" href="{% url 'userhome' %}">Home</a></li>
+                        <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <br>
+    <br>
+    <br>
+
+    <div id="pricing" class="section lb">
+        <div class="container">
+            <div class="section-title text-center">
+                <br>
+                <br>
+                <h3>Product Comparison</h3>
+                <p class="lead">Compare the products and gave insight on the product</p>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-content">
+                        <div class="tab-pane active fade show" id="tab1">
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="pricing-table pricing-table-highlighted">
+                                        <div class="pricing-table-header grd1">
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            <h2 >Product model:</h2>
+                                            <h3 >price:</h3align>
+                                        </div>
+                                        <div class="pricing-table-text"></div>
+                                        <div class="pricing-table-features">
+                                            <p><i class="fa fa-envelope-o"></i> <strong>Network</strong> </p>
+                                            <p><i class="fa fa-rocket"></i> <strong>Body</strong> </p>
+                                            <p><i class="fa fa-database"></i> <strong>Display</strong> </p>
+                                            <p><i class="fa fa-link"></i> <strong>Platform</strong> </p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>Memory</strong> </p>
+                                            <p><i class="fa fa-envelope-o"></i> <strong>CPU</strong> </p>
+                                            <p><i class="fa fa-rocket"></i> <strong>Rear Camera</strong></p>
+                                            <p><i class="fa fa-database"></i> <strong>Front Camera</strong> </p>
+                                            <p><i class="fa fa-link"></i> <strong>Storage</strong> </p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>Battery</strong> </p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
+
+                                    {% for i in con2 %}
+                                         <form method="post" action="{% url 'compareview' id=i.id%}">
+                                         {% csrf_token %}
+                                    <div class="pricing-table pricing-table-highlighted">
+                                        <div class="pricing-table-header grd1">
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <h2>{{ i.model }}</h2>
+                                            <h3 >{{ i.price }}</h3>
+                                        </div>
+
+                                        <div class="pricing-table-text">
+                                            </div>
+                                        <div class="pricing-table-features">
+                                            <p><i class="fa fa-envelope-o"></i> <strong>{{ i.network }}</strong> </p>
+                                            <p><i class="fa fa-rocket"></i> <strong>{{ i.body }}</strong> </p>
+                                            <p><i class="fa fa-database"></i> <strong>{{i.display}}</strong> </p>
+                                            <p><i class="fa fa-link"></i> <strong>{{ i.platform }}</strong> </p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>{{i.memory}}</strong> </p>
+                                            <p><i class="fa fa-envelope-o"></i> <strong>{{i.cpu}}</strong> </p>
+                                            <p><i class="fa fa-rocket"></i> <strong>{{i.mainCam}}</strong></p>
+                                            <p><i class="fa fa-database"></i> <strong>{{ i.selfieCam }}</strong> </p>
+                                            <p><i class="fa fa-link"></i> <strong>{{i.phfeatures}}</strong> </p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>{{ i.battery }}</strong> </p>
+                                        </div>
+
+                                    </div>
+                                </div>{% endfor %}
+
+                                <div class="col-md-4">
+                                    <div class="pricing-table pricing-table-highlighted">
+                                        <div class="pricing-table-header grd1">
+
+                                            <select class="browser-default custom-select" name="select" >{% for i in con %}
+  <option  value="{{i.id}}" style="background-: {{ i.image.url }};">  {{i.model}}</option>
+
+                                            {% endfor %}</select>
+<button class="btn btn-warning">Compare</button></form>
+
+                                            <div class="pricing-table-sign-up">
+
+                                        </div>
+                                        </div>
+                                        <div class="pricing-table-space"></div>
+                                        <div class="pricing-table-features">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div><!-- end row -->
+                        </div><!-- end pane -->
+                    </div><!-- end content -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+ <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="{% static '#' %}">Appfast</a> Design By :
+					<a href="{% static 'https://html.design/' %}">Christin</a></p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'js/all.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/custom.js' %}"></script>
+	<script src="{% static 'js/zenith.js' %}"></script>' %}
+	<script>
+		$('#default').zenith({
+			layout: 'default' ,
+			slideSpeed: 450,
+			autoplaySpeed: 2000
+		});
+	</script>
+</body>
+</html>
